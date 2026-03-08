@@ -94,7 +94,7 @@ jobs:
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
           # 既存の公式SDKリポジトリを使用
-          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/xybp888/iOS-SDKs
           cd sdks
           # 指定されたSDKのみを取得
           git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
