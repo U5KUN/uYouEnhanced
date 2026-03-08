@@ -18,7 +18,7 @@ on:
         type: string
       decrypted_youtube_url:
         description: "Direct URL of the decrypted YouTube IPA"
-        default: ""
+        default: "https://github.com/U5KUN/uYouEnhanced/releases/download/ipa/YouTube-20.21.6.ipa"
         required: true
         type: string
       bundle_id:
