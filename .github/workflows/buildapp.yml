@@ -93,15 +93,11 @@ jobs:
       - name: Download iOS SDK
         if: steps.SDK.outputs.cache-hit != 'true'
         run: |
-          # 既存の公式SDKリポジトリを使用
-          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/xybp888/iOS-SDKs
+          git clone --quiet -n --depth=1 --filter=tree:0 https://github.com/aricloverALT/sdks/
           cd sdks
-          # 指定されたSDKのみを取得
           git sparse-checkout set --no-cone iPhoneOS${{ inputs.sdk_version }}.sdk
           git checkout
-          # 確実に $THEOS/sdks に移動させる
-          mkdir -p $THEOS/sdks
-          cp -r iPhoneOS${{ inputs.sdk_version }}.sdk $THEOS/sdks/
+          mv *.sdk $THEOS/sdks
         env:
           THEOS: ${{ github.workspace }}/theos
 
